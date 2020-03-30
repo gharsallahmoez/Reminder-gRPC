@@ -1,6 +1,8 @@
 syntax = "proto3";
 package demo.reminder.v1;
 import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+
 option go_package = "reminder";
 
 message ScheduleReminderRequest {
@@ -11,6 +13,7 @@ message ScheduleReminderResponse {
 }
 
 service ReminderService {
-    rpc ScheduleReminder (ScheduleReminderRequest) returns (ScheduleReminderResponse) {
+    rpc ScheduleReminder(ScheduleReminderRequest) returns (ScheduleReminderResponse) {
+        option (google.api.http) = { put: "/v1/reminder/schedule" body: "*" };
     }
 }

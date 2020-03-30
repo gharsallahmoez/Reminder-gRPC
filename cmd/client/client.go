@@ -15,6 +15,8 @@ func main() {
 		context.Background(),
 		5*time.Second,
 	)
+
+
 	reminderConn, err := grpc.DialContext(ctx, "localhost:8080",
 		grpc.WithInsecure(),
 	)
